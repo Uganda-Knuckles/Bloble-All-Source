@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bloble Online</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+	<meta name="description" content="Bloble.io is a brand new Tower Defense online Game. Defend your Base and destroy your enemies">
+	<meta name="keywords" content="games,gaming,online,agar,agar.io,multiplayer,free">
+	<meta name="google-site-verification" content="p7eYV_TiIuPXJGj4CLU0PQWjMZgnUl0FYck93Nxu-rw" />
+	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="shortcut icon" type="image/png" href="/img/favicon.png?v=4" />
+	<link rel="stylesheet" href="css/main.css" />
+	<script src="https://apis.google.com/js/platform.js"></script>
+	<script>
+		window.twttr = (function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0],
+		    t = window.twttr || {};
+		  if (d.getElementById(id)) return t;
+		  js = d.createElement(s);
+		  js.id = id;
+		  js.src = "https://platform.twitter.com/widgets.js";
+		  fjs.parentNode.insertBefore(js, fjs);	
+		  t._e = [];
+		  t.ready = function(f) {
+		    t._e.push(f);
+		  };
+		  return t;
+		}(document, "script", "twitter-wjs"));
+	</script>
+</head>
+<body>
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<script src="https://apis.google.com/js/platform.js"></script>
+
+    <!-- GAME DISPLAY -->
+	<canvas tabindex="1" id="mainCanvas" oncontextmenu="return false;"></canvas>
+	<div id="gameUiContainer">
+		<div id="leaderboardContainer">
+			<div id="leaderboardHeader">
+				Leaderboard
+			</div>
+			<div id="leaderboardList">
+			</div>
+		</div>
+		<div id="unitList">
+		</div>
+		<div id="unitInfoContainer">
+			<div id="unitInfo" class="unitInfo">
+			    <div id="unitInfoName" class='unitInfoName'>
+			    </div>
+			    <div id="unitInfoCost" class='unitInfoCost'>
+			    </div>
+			    <div id="unitInfoDesc" class='unitInfoDesc'>
+			    </div>
+			    <div id="unitInfoType" class='unitInfoType'>
+			    </div>
+			    <div id="unitInfoLimit" class='unitInfoLimit'>
+			    </div>
+			</div>
+			<div id="unitInfoUpgrades">
+			</div>
+		</div>
+		<div id="statContainer">
+			<div id="scoreContainer">
+			</div>
+		</div>
+		<div id="sellButton">
+		    Sell
+		</div>
+		<div id="chatBox">
+			<div id="chatListWrapper">
+				<div id="chatList">
+				</div>
+			</div>
+			<input id="chatInput" type="text" value="" class="chatInput"
+					placeholder="Send Message..." maxlength="50" />
+		</div>
+	</div>
+	
+	<!-- DARKENER -->
+	<div id="darkener">
+	</div>
+
+	<!-- GAME MENU -->
+	<div id="menuContainer">
+		<div class="centerContent">
+			<div id="gameTitle">BLOBLE<span class='greyMenuText'>.IO</span></div>
+			<div id="userInfoContainer">
+				<div id="skinInfo">
+					<img id="skinIcon">
+				</div>
+				<div id="skinSelector" onclick="changeSkin(1)"><i class="material-icons">&#xE8D5;</i> SKIN</div>
+				<input type="text" id="userNameInput" placeholder="ENTER NAME" maxlength="14" autofocus />
+				<button type="button" id="enterGameButton">PLAY <i class="material-icons">&#xE037;</i></button> 
+			</div>
+			<div id="loadingContainer">
+			</div>
+			<div class="greyMenuText" id="instructionsText">				
+			</div>
+				
+			<!-- ADVERTISEMENT -->
+			<div id="adContainer">
+			    <div id="adHolder">
+					<ins class="adsbygoogle"
+					     style="display:inline-block;width:336px;height:280px"
+					     data-ad-client="ca-pub-4505182558467475"
+					     data-ad-slot="6676486948"></ins>
+					<script>
+					   (adsbygoogle = window.adsbygoogle || []).push({});
+					</script>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+ 	<!-- INFOS -->
+ 	<div id="linksContainer">
+		
+		<!-- LOBBY KEY -->
+		<div id="optionsContainer">
+			<div class="spanLink" id="lobbyKey" onclick="loadPartyKey();">
+				<span id="lobbyKeyText"><i class="material-icons" style="vertical-align: middle;">&#xE8D3;</i> create party</span>
+			</div>
+		</div>
+		
+		<!-- ADVERTISEMENT 2 -->
+		<div id="smallAdContainer">
+			<ins class="adsbygoogle"
+			     style="display:inline-block;width:320px;height:100px"
+			     data-ad-client="ca-pub-4505182558467475"
+			     data-ad-slot="3438328945"></ins>
+			<script>
+		        (adsbygoogle = window.adsbygoogle || []).push({});
+			</script>
+		</div>
+		
+		<!-- YOUTUBER OF THE DAY -->
+		<div id="youtuberOf">
+		    Featured Youtuber:
+		    <div class="spanLink" id="featuredYoutube">
+		    </div>
+		    <div id="youtubeContainer"></div>  
+		</div>
+		
+		<!-- FOLLOW BUTTONS -->
+		<div id="followText">Unlock Skins:</div>
+		<div id="twitterFollBt">
+			<a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=Come%20play%20this%20new%20game%20http://bloble.io%20%23iogames%20%23blobleIO">Share</a>
+			<a href="https://twitter.com/Sidney_de_Vries" class="twitter-follow-button" data-show-screen-name="false" data-show-count="true">Follow
+			</a>
+		</div>
+		
+		<!-- EXTERNAL LINKS -->
+		<div id="creatorLink">
+			<span class="greyMenuText">game by </span><a target="_blank" href="https://twitter.com/Sidney_de_Vries">sidney de vries</a>
+		</div>
+		<div id="infoLinks">
+			<a target="_blank" href="./changes.txt">changes</a> | <a target="_blank" href="./privacy.txt">privacy</a> 
+			| <a target="_blank" href="https://www.reddit.com/r/bloble/">forum</a> | <a target="_blank" href="https://discord.gg/3c8fPWn">chat</a>
+		</div>
+		<div id="infoLinks2">
+			<div id="controlsButton" onclick="toggleControls()"></div>
+		</div>
+	</div>
+
+	<!-- LOAD MAIN SCRIPTS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
+	<script src="js/utils/utils.js"></script>
+	<script src="shareData.js"></script>
+	<script src="js/game.js"></script>
+	<script>
+		twttr.ready(function (twttr) {
+			twttr.events.bind('follow', function(event) {
+				unlockSkins();
+		    });
+		    twttr.events.bind('tweet', function(event) {
+		    	unlockSkins();
+		    });
+		});
+	</script>
+</body>
+</html>
